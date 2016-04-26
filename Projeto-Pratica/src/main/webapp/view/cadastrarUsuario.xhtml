@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastrar Usuário</title>
+		<h:outputStylesheet library="css" name="estilo.css"/>
+	</h:head>
+	
+	<body>	
+	
+		<h:form>
+	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
+		</h:form>
+		
+		<div id="header">
+  			<ui:insert name="header">
+  				<!-- Import de página do cabeçalho -->
+  				<ui:include src="/template/header.xhtml"/>
+  			</ui:insert>
+		</div>
+		
+		<h:form>
+			<p:panel id="panel" header="Cadastro de Usuário">
+		        
+		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid">
+		           <p:outputLabel for="cpf" value="CPF:" />
+		            <p:inputMask id="cpf" required="true" requiredMessage="Preencha o campo todo"
+		            	label="CPF" value="#{usuarioController.usuario.cpf}" mask="999.999.999-99" >
+		            </p:inputMask>
+		            <p:message for="cpf"    />
+		 
+		 			<p:outputLabel for="login" value="Login:" />
+		 			<p:inputText id="login" required="true" requiredMessage="Preencha o campo correto" 
+		            	validatorMessage="Digite um login com no mínimo 3 caracteres e no máximo 20" 
+		            	label="Login" value="#{usuarioController.usuario.login}">
+		                <f:validateLength minimum="3" maximum="20" />
+		            </p:inputText>
+		            <p:message for="login"    />
+		            
+		            <p:outputLabel for="senha" value="Senha:" />
+		 			<p:password id="senha" required="true" requiredMessage="Preencha o campo correto" 
+		            	validatorMessage="Digite uma senha com no mínimo 3 caracteres" label="Senha" value="#{usuarioController.usuario.senha}">
+		                <f:validateLength minimum="3"  />
+		            </p:password>
+		            <p:message for="senha"    />
+		            
+		          
+		            
+		            <p:outputLabel for="tipo" value="Tipo de usuário:" />
+		            <p:selectOneMenu id="tipo" value="#{usuarioController.usuario.tipoUsuario}"
+		             required="true" requiredMessage="Escolha uma opção" label="Tipo de usuário">
+		                <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+		                <f:selectItem itemLabel="Administrador" itemValue="administrador" />
+		                <f:selectItem itemLabel="Normal" itemValue="normal" />
+           			</p:selectOneMenu>
+		            <p:message for="tipo"/>
+		            
+		 
+		 			   
+		            
+		      	</h:panelGrid>
+		 
+		        <p:commandButton value="Salvar" action="#{usuarioController.adiciona()}" icon="ui-icon-disk" update="@form" /> 
+			</p:panel>
+			
+			
+		
+		</h:form>
+		
+  			
+		<div id="footer">
+			<ui:insert name="footer">
+				<!-- Import de página do rodapé -->
+				<ui:include src="/template/footer.xhtml"/>
+			</ui:insert>
+		</div>
+	
+	</body>
+	
+</html>

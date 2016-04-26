@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		
+	</h:head>
+	
+		<style type="text/css">
+		.header {
+			width: 95%;
+			background-color: #000;
+			height: 52px;
+			padding: 32px;
+			margin: 10px 0;
+		
+		}
+		
+		.header a {
+			loat: left;
+			margin-bottom: -10px;
+		}
+	</style>
+		<div class="header">
+			<img src="../../imagens/ufrn.png" title="Prática Jurídica" align="top" width="50" />
+			
+			<font color="#00FFFF" size="25" > Prática Jurídica</font>
+		</div>
+		
+		
+		
+	<body>
+	<h1><font color="#8B795E" > Bem-vindo Usuário!</font></h1>		
+		<h:form>
+			<p:menu >
+			
+				<p:submenu label="Cadastrar" icon="ui-icon-plus">
+					<p:menuitem value="Cliente"  />
+					<p:menuitem value="Causa"  />
+					<p:menuitem value="Ação"  />
+					
+				</p:submenu>
+				
+				<p:submenu label="Listar" icon="ui-icon-search">
+					<p:menuitem value="Cliente"  />
+					<p:menuitem value="Causa"  />
+					<p:menuitem value="Ação"  />
+				</p:submenu>
+				
+				<p:submenu label="Alterar" icon="ui-icon-pencil">
+					<p:menuitem value="Cliente"  />
+					<p:menuitem value="Causa"  />
+					<p:menuitem value="Ação"  />
+				</p:submenu>
+				
+				<p:submenu label="Remover" icon="ui-icon-trash">
+				
+					<p:menuitem value="Cliente"  />
+					<p:menuitem value="Causa"  />
+					<p:menuitem value="Ação"  />
+					
+				</p:submenu>
+				
+				
+				
+				<p:submenu label="Arquivos" icon="ui-icon-folder-open">
+					<p:menuitem value="Gerar formulário"  icon="ui-icon-document"/>
+					<p:menuitem value="Gerar relatório"  icon="ui-icon-document"/>
+					
+				
+				</p:submenu>
+				
+				
+				<p:submenu style="float:  right;" label="Sistema" icon="ui-icon-gear">
+					<p:menuitem value="Sair"  icon="ui-icon-extlink" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</body>
+</html>

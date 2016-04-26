@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Login</title>
+		<h:outputStylesheet library="css" name="estilo.css"/>
+		<link rel="shortcut icon" href="imagem/icone_80.png" />
+	</h:head>
+	
+	<body>
+		
+		<img src=""  alt="" />
+		
+	
+		<div id="header">
+  			<ui:insert name="header">
+  				<!-- Import de página do cabeçalho -->
+  				<ui:include src="/template/header.xhtml"/>
+  			</ui:insert>
+		</div>
+		
+		
+		<div id="login-dialog">
+			<h:form>
+			    <p:panel id="panel" header="Entrar no sistema">
+			 
+			        <p:messages id="msgs" style="color:red" />
+			 
+			        <h:panelGrid columns="3" cellpadding="5" styleClass="grid-login">
+			            <p:outputLabel for="usuario" value="Usuário:" />
+			            <p:inputText id="usuario" required="true" requiredMessage="Preencha o campo certo do usuário" 
+			            	label="Usuario" value="#{loginController.nomeUsuario}">
+			                <f:validateLength minimum="2"  />
+			            </p:inputText>
+			            <p:message for="usuario"  display="icon"  />
+			 
+			            <p:outputLabel for="senha" value="Senha:" />
+			            <p:password id="senha" label="Senha" required="true" requiredMessage="Preencha o campo certo da senha"
+			            	value="#{loginController.senha}">
+			                <f:validateLength minimum="2" />
+			                <p:ajax update="msgSenha" event="keyup" />
+			            </p:password>
+			            <p:message for="senha" id="msgSenha" display="icon" />
+			 
+			        </h:panelGrid>
+			 
+			        <p:commandButton value="Entrar" update="panel" action="#{loginController.login}" icon="ui-icon-check" />
+			    </p:panel>
+			</h:form>
+		</div>
+  			
+		<div id="footer">
+			<ui:insert name="footer">
+				<!-- Import de página do rodapé -->
+				<ui:include src="/template/footer.xhtml"/>
+			</ui:insert>
+		</div>
+	
+	</body>
+	
+</html>

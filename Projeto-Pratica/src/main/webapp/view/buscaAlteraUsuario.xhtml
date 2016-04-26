@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Alterar usuário</title>
+		<h:outputStylesheet library="css" name="estilo.css"/>
+	</h:head>
+	
+	<h:body>
+	
+		<h:form>
+	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
+		</h:form>
+	
+		<h:form>
+			<p:panel id="panel" header="Alterar usuário" >
+		        
+		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid" >
+		            <p:outputLabel for="id" value="Digite o id do usuário: " />
+		            <p:inputText id="id" required="true" requiredMessage="Preencha o campo correto" 
+		            	label="Digite o id do usuário" value="#{usuarioController.usuario.id}">
+		            </p:inputText>
+		            <p:message for="id"    />
+		            
+		        </h:panelGrid>
+		 
+		        <p:commandButton value="Buscar" action="#{usuarioController.buscaAltera()}" icon="ui-icon-check" update="@form" /> 
+			</p:panel>
+		
+		</h:form>
+		
+			
+	</h:body>
+</html>
