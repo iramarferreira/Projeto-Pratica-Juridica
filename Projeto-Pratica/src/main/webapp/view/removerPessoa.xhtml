@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Remover Pessoa</title>
+		<h:outputStylesheet library="css" name="estilo.css"/>
+	</h:head>
+	
+		<h:form>
+	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
+		</h:form>
+	
+		<div id="header">
+  			<ui:insert name="header">
+  				<!-- Import de página do cabeçalho -->
+  				<ui:include src="/template/header.xhtml"/>
+  			</ui:insert>
+		</div>
+	
+	<h:body>
+	
+	<h:form>
+	
+			<p:panel id="panel" header="Remover Pessoa" >
+		       
+		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid" >
+		            <p:outputLabel for="id" value="Digite o id do usuário: "/>
+		            <p:inputText id="id" required="true" requiredMessage="Preencha o campo correto" 
+		            	label="Digite o id do usuário" value="#{pessoaController.pessoa.id}">
+		            </p:inputText>
+		            <p:message for="id"    />
+		            
+		        </h:panelGrid>
+		 
+				<p:commandButton value="Remover" action="#{pessoaController.remover()}" icon="ui-icon-trash"  >
+					 <p:confirm header="Confirmação" message="Você realmente deseja remover?" 
+					 icon="ui-icon-alert" />
+				</p:commandButton>
+		       
+    
+			</p:panel>
+		
+		 		
+		
+		</h:form>
+		
+		<h:form>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    		</p:confirmDialog>
+		</h:form>
+		
+		<div id="footer">
+			<ui:insert name="footer">
+				<!-- Import de página do rodapé -->
+				<ui:include src="/template/footer.xhtml"/>
+				</ui:insert>
+		</div>
+		
+		
+			
+	</h:body>
+</html>

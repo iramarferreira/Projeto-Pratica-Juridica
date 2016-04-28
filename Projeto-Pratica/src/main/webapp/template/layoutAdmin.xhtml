@@ -46,7 +46,7 @@
 			<p:menubar style="margin-top: -20px; margin-bottom: 20px; width: 100%;">
 				<p:submenu label="Cadastrar" icon="ui-icon-plus">
 					<p:menuitem value="Usuário" action="cadastrarUsuario?faces-redirect=true"  />
-					<p:menuitem value="Pessoa"  />
+					<p:menuitem value="Pessoa"  action="cadastrarPessoa?faces-redirect=true"/>
 					<p:menuitem value="Cliente"  />
 					<p:menuitem value="Causa"  />
 					<p:menuitem value="Ação"  />
@@ -55,7 +55,7 @@
 				
 				<p:submenu label="Listar" icon="ui-icon-search">
 					<p:menuitem value="Usuários" action="listarUsuario?faces-redirect=true" />
-					<p:menuitem value="Pessoas"   />
+					<p:menuitem value="Pessoas"  action="listarPessoa?faces-redirect=true" />
 					<p:menuitem value="Clientes"  />
 					<p:menuitem value="Causas"  />
 					<p:menuitem value="Ações"  />
@@ -64,7 +64,7 @@
 				
 				<p:submenu label="Alterar" icon="ui-icon-pencil">
 					<p:menuitem value="Usuário" action="buscaAlteraUsuario?faces-redirect=true" />
-					<p:menuitem value="Pessoa"  />
+					<p:menuitem value="Pessoa"  action="buscaAlteraPessoa?faces-redirect=true"/>
 					<p:menuitem value="Cliente"  />
 					<p:menuitem value="Causa"  />
 					<p:menuitem value="Ação"  />
@@ -73,7 +73,7 @@
 				<p:submenu label="Remover" icon="ui-icon-trash">
 				
 					<p:menuitem value="Usuário" action="removerUsuario?faces-redirect=true" />
-					<p:menuitem value="Pessoa"  />
+					<p:menuitem value="Pessoa"  action="removerPessoa?faces-redirect=true"/>
 					<p:menuitem value="Cliente"  />
 					<p:menuitem value="Causa"  />
 					<p:menuitem value="Ação"  />

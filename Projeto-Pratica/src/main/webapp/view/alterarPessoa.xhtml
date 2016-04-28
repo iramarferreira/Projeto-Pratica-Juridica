@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Alterar Pessoa</title>
+		<h:outputStylesheet library="css" name="estilo.css"/>
+	</h:head>
+	
+	
+	
+	
+	<body>	
+		
+		<h:form>
+	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
+		</h:form>
+		
+		<div id="header">
+  			<ui:insert name="header">
+  				<!-- Import de página do cabeçalho -->
+  				<ui:include src="/template/header.xhtml"/>
+  			</ui:insert>
+		</div>
+		
+		
+		<h:form>
+			<p:panel id="panel" header="Cadastro de Pessoa" >
+		        
+		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid" >		        	
+		        
+		        	<p:outputLabel for="nome" value="Nome:" />
+		 			<p:inputText id="nome"  
+		            	validatorMessage="Digite o nome com no mínimo 3 caracteres" 
+		            	label="Nome" value="#{pessoaController.pessoa.nome}">
+		                <f:validateLength minimum="3"  />
+		            </p:inputText>
+		        	 <p:message for="nome"    />
+
+		            <p:outputLabel for="cpf" value="CPF:" />
+		            <p:inputMask id="cpf" 
+		            	validatorMessage="Digite o CPF com 11 caracteres" label="CPF" 
+		            	value="#{pessoaController.pessoa.cpf}" mask="999.999.999-99" >
+		            </p:inputMask>
+		            <p:message for="cpf"    />
+		 
+		 			<p:outputLabel for="rg" value="RG:" />
+		 			<p:inputMask id="rg"  
+		            	validatorMessage="Digite o RG com 7 caracteres" label="RG" 
+		            	value="#{pessoaController.pessoa.rg}" mask="9.999.999">
+		            </p:inputMask>
+		            <p:message for="rg"    />
+		            
+		            <p:outputLabel value="Data de nascimento" for="dataNascimento" />
+					<p:calendar size="12" id="dataNascimento" pattern="dd/MM/yyyy"
+						value="#{pessoaController.pessoa.dataNascimento}" />
+					<p:message for="dataNascimento"    /> 
+		            
+		           <p:outputLabel for="celular" value="Celular:" />
+		 			<p:inputMask id="celular"  
+		            	label="Celular" value="#{pessoaController.pessoa.celular}" mask="(99) 9999-9999">
+		            </p:inputMask>
+		            <p:message for="celular"    />
+		            
+		            <p:outputLabel for="tipo" value="Tipo de Pessoa:" />
+		            <p:selectOneMenu id="tipo" value="#{pessoaController.pessoa.tipoPessoa}"
+		             required="true" requiredMessage="Escolha uma opção" label="Tipo de Pessoa">
+		                <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+		                <f:selectItem itemLabel="Professor" itemValue="professor" />
+		                <f:selectItem itemLabel="Aluno" itemValue="aluno" />
+           			</p:selectOneMenu>
+		            <p:message for="tipo"/>
+		            
+		            
+		            <p:outputLabel for="cidade" value="Cidade:" />
+		 			<p:inputText id="cidade"  required="true" 
+		 				requiredMessage="Digite o nome da ciade." 
+		            	label="Cidade" value="#{pessoaController.endereco.cidade}">
+		                
+		            </p:inputText>
+		            <p:message for="cidade"    />
+		            
+		            <p:outputLabel for="uf" value="UF:" />
+		            <p:selectOneMenu id="uf" value="#{pessoaController.endereco.ufEstado}"
+		             required="true" requiredMessage="Escolha uma opção" label="UF">
+		                <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+		                <f:selectItem itemLabel="Acre" itemValue="Acre" />
+		                <f:selectItem itemLabel="Alagoas" itemValue="Alagoas" />
+		                <f:selectItem itemLabel="Amapá" itemValue="Amapá" />
+		                <f:selectItem itemLabel="Amazonas" itemValue="Amazonas" />
+		                <f:selectItem itemLabel="Bahia" itemValue="Bahia" />
+		                <f:selectItem itemLabel="Ceará" itemValue="Ceará" />
+		                <f:selectItem itemLabel="Distrito Federal" itemValue="Distrito Federal" />
+		                <f:selectItem itemLabel="Espírito Santo" itemValue="Espiríto Santo" />
+		                <f:selectItem itemLabel="Goiás" itemValue="Goiás" />
+		                <f:selectItem itemLabel="Maranhão" itemValue="Maranhão" />
+		                <f:selectItem itemLabel="Mato Grosso" itemValue="Mato Grosso" />
+		                <f:selectItem itemLabel="Mato Grosso do Sul" itemValue="Mato Grosso do Sul" />
+		                <f:selectItem itemLabel="Minas Gerais" itemValue="Pará" />
+		                <f:selectItem itemLabel="Paraíba" itemValue="Paraíba" />
+		                <f:selectItem itemLabel="Paraná" itemValue="Paraná" />
+		                <f:selectItem itemLabel="Pernambuco" itemValue="Pernambuco" />
+		                <f:selectItem itemLabel="Piauí" itemValue="Piauí" />
+		                <f:selectItem itemLabel="Rio de Janeiro" itemValue="Rio de Janeiro" />
+		                <f:selectItem itemLabel="Rio Grande do Norte" itemValue="Rio Grande do Norte" />
+		                <f:selectItem itemLabel="Rio Grande do Sul" itemValue="Rio Grande do Sul" />
+		                <f:selectItem itemLabel="Rondônia" itemValue="Rodônia" />
+		                <f:selectItem itemLabel="Roraima" itemValue="Roraima" />
+		                <f:selectItem itemLabel="Santa Catarina" itemValue="Santa Catarina" />
+		                <f:selectItem itemLabel="São Paulo" itemValue="São Paulo" />
+		                <f:selectItem itemLabel="Sergipe" itemValue="Sergipe" />
+		                <f:selectItem itemLabel="Tocantins" itemValue="Tocantins" />
+		                
+		                
+           			</p:selectOneMenu>
+		            <p:message for="uf"/>
+		            
+		            
+		            <p:outputLabel for="cep" value="CEP:" />
+		 			<p:inputMask id="cep"  
+		            	label="CEP" value="#{pessoaController.endereco.cep}" mask="99999-999">
+		            </p:inputMask>
+		            <p:message for="cep"    />
+		            
+		            <p:outputLabel for="bairro" value="Bairro" />
+		 			<p:inputText id="bairro"  required="true" requiredMessage="Preencha o campo"
+		            	label="Bairro" value="#{pessoaController.endereco.bairro}">
+		            </p:inputText>
+		            <p:message for="bairro"    />
+		            
+		            <p:outputLabel for="rua" value="Rua:" />
+		 			<p:inputText id="rua"  required="true" requiredMessage="Preencha o campo"
+		            	label="Rua" value="#{pessoaController.endereco.rua}">
+		            </p:inputText>
+		            <p:message for="rua"    />
+		            
+		           <p:outputLabel for="numCasa" value="Número da casa:" />
+		 			<p:inputText id="numCasa"  required="true" requiredMessage="Preencha o campo"
+		            	label="Número da casa" value="#{pessoaController.endereco.numCasa}">
+		            </p:inputText>
+		            <p:message for="numCasa"    />
+		            
+		            <p:outputLabel for="usuario" value="Cadastrador por:" />
+		            <p:selectOneMenu id="usuario" value="#{pessoaController.pessoa.usuario.id}" 
+			        	required="true" requiredMessage="Escolha uma opção">
+			            <f:selectItem itemLabel="Selecione" itemValue="" noSelectionOption="true" />
+			            <f:selectItems value="#{usuarioController.listar}"
+						var="usuario" itemValue="#{usuario.id}"
+						itemLabel="#{usuario.login}" />
+			        </p:selectOneMenu>
+		            <p:message for="usuario" />  
+		            
+		            
+		        </h:panelGrid>
+		 
+		        <h:commandButton value="Salvar" action="#{pessoaController.getAlterar}" icon="ui-icon-disk" update="@form" />
+		        
+		     
+			</p:panel>
+			
+			
+		
+		</h:form>
+		
+		<div id="footer">
+			<ui:insert name="footer">
+				<!-- Import de página do rodapé -->
+				<ui:include src="/template/footer.xhtml"/>
+			</ui:insert>
+		</div>
+		
+	
+	</body>
+	
+</html>
