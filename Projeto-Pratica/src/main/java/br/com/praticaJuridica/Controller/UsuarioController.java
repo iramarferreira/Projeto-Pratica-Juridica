@@ -1,5 +1,6 @@
 package br.com.praticaJuridica.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -49,6 +50,19 @@ public class UsuarioController {
 		this.usuarioJpaDao.removeById(this.usuario.getId());
 		this.usuario = new Usuario();
 		return "/view/menuAdmin?faces-redirect=true";
+	}
+	
+	public Usuario buscaLogin(String nomeLogin, String senha){
+		List<Usuario> usuarios = getListar();
+		for(Usuario usuarioBd : usuarios){
+    		
+    		if(usuarioBd.getLogin().equals(nomeLogin) && (usuarioBd.getSenha().equals(senha))){
+    			return usuarioBd;
+    		}
+    			
+    	}
+    	return null;
+		
 	}
 	
 	public String buscaAltera(){

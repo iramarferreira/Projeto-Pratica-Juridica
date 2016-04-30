@@ -34,7 +34,12 @@
 		
 		
 	<body>
-	<h1><font color="#8B795E" > Bem-vindo Usuário!</font></h1>		
+	<h1><font color="#8B795E" > Bem-vindo Usuário!</font></h1>	
+	
+
+ 
+
+		
 		<h:form>
 			<p:menu >
 			
@@ -76,7 +81,7 @@
 				
 				
 				<p:submenu style="float:  right;" label="Sistema" icon="ui-icon-gear">
-					<p:menuitem value="Sair"  icon="ui-icon-extlink" />
+					<p:menuitem value="Sair"  icon="ui-icon-extlink" action="#{loginController.logout}" />
 				</p:submenu>
 			</p:menu>
 		</h:form>
