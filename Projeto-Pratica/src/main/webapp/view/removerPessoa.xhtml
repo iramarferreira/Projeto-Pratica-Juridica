@@ -10,6 +10,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Remover Pessoa</title>
 		<h:outputStylesheet library="css" name="estilo.css"/>
+		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
 	
 		<h:form>
@@ -29,7 +30,7 @@
 	
 			<p:panel id="panel" header="Remover Pessoa" >
 		       
-		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid" >
+		        <h:panelGrid columns="3" cellpadding="5"  >
 		            <p:outputLabel for="id" value="Digite o id do usuário: "/>
 		            <p:inputText id="id" required="true" requiredMessage="Preencha o campo correto" 
 		            	label="Digite o id do usuário" value="#{pessoaController.pessoa.id}">

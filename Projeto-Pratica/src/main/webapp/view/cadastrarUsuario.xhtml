@@ -10,6 +10,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Cadastrar Usuário</title>
 		<h:outputStylesheet library="css" name="estilo.css"/>
+		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
 	
 	<body>	
@@ -28,7 +29,7 @@
 		<h:form>
 			<p:panel id="panel" header="Cadastro de Usuário">
 		        
-		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid">
+		        <h:panelGrid columns="3" cellpadding="5" >
 		           <p:outputLabel for="cpf" value="CPF:" />
 		            <p:inputMask id="cpf" required="true" requiredMessage="Preencha o campo todo"
 		            	label="CPF" value="#{usuarioController.usuario.cpf}" mask="999.999.999-99" >
