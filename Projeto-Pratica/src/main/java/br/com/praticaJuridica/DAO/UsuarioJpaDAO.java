@@ -6,7 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
+import br.com.praticaJuridica.model.Pessoa;
 import br.com.praticaJuridica.model.Usuario;
 
 
@@ -41,7 +43,19 @@ public class UsuarioJpaDAO {
     
     @SuppressWarnings("unchecked") 
     public List<Usuario> findAll(){ 
-    	return entityManager.createQuery("FROM " + Usuario.class.getName()).getResultList(); 
+    	List<Usuario> usuarios = entityManager.createQuery("FROM " + Usuario.class.getName()).getResultList();
+    	for(Usuario usuario: usuarios){
+    		entityManager.refresh(usuario);
+    	}
+    	return usuarios;
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<Usuario> findAdmin(){
+    	String administrador = "administrador";
+    	Query query = entityManager.createQuery("FROM Usuario u WHERE u.tipoUsuario LIKE :administrador");
+    	query.setParameter("administrador", "%" + administrador + "%");
+    	return query.getResultList();
     }
 
     public void persist(Usuario usuario){ 

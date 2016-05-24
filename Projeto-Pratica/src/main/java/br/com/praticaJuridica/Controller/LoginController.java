@@ -16,16 +16,16 @@ import br.com.praticaJuridica.model.Usuario;
 public class LoginController {
 	
 	
-	boolean logado;
-	private String nomeLogin;
-	private String senha;
+	static boolean logado;
+	private static String nomeLogin;
+	private static String senha;
 	
 	public LoginController(){
 		logado = false;
 	}
 	
 	
-	public  String login() {
+	public static String login() {
 		Usuario usuario = new Usuario();
 		UsuarioController usuarioController = new UsuarioController();
 		FacesContext context = FacesContext.getCurrentInstance();

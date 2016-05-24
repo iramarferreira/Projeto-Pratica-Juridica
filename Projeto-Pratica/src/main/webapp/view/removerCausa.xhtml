@@ -8,18 +8,15 @@
 
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Alterar Pessoa</title>
+		<title>Remover Causa</title>
 		<h:outputStylesheet library="css" name="estilo.css"/>
 		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
 	
-	<h:body>
-	
-		
 		<h:form>
 	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
 		</h:form>
-		
+	
 		<div id="header">
   			<ui:insert name="header">
   				<!-- Import de página do cabeçalho -->
@@ -27,29 +24,47 @@
   			</ui:insert>
 		</div>
 	
-		<h:form>
-			<p:panel id="panel" header="Alterar Pessoa" >
-		        
+	<h:body>
+	
+	<h:form>
+	
+			<p:panel id="panel" header="Remover Causa" >
+		       
 		        <h:panelGrid columns="3" cellpadding="5"  >
-		            <p:outputLabel for="id" value="Digite o id da pessoa: " />
+		            <p:outputLabel for="id" value="Digite o id do cliente: "/>
 		            <p:inputText id="id" required="true" requiredMessage="Preencha o campo correto" 
-		            	label="Digite o id da pessoa" value="#{pessoaController.pessoa.id}">
+		            	label="Digite o id do cliente" value="#{causaController.causa.id}">
 		            </p:inputText>
 		            <p:message for="id"    />
 		            
 		        </h:panelGrid>
 		 
-		        <p:commandButton value="Buscar" action="#{pessoaController.buscaAltera()}" icon="ui-icon-check" update="@form" /> 
+				<p:commandButton value="Remover" action="#{causaController.remover()}" icon="ui-icon-trash"  >
+					 <p:confirm header="Confirmação" message="Você realmente deseja remover?" 
+					 icon="ui-icon-alert" />
+				</p:commandButton>
+		       
+    
 			</p:panel>
 		
+		 		
+		
+		</h:form>
+		
+		<h:form>
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    		</p:confirmDialog>
 		</h:form>
 		
 		<div id="footer">
 			<ui:insert name="footer">
 				<!-- Import de página do rodapé -->
 				<ui:include src="/template/footer.xhtml"/>
-			</ui:insert>
+				</ui:insert>
 		</div>
+		
 		
 			
 	</h:body>

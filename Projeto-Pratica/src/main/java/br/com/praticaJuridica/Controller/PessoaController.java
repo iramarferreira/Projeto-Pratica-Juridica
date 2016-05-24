@@ -63,6 +63,7 @@ public class PessoaController {
 		return pessoas;
 	}
 	
+	
 	public String remover(){
 		this.pessoaJpaDao.removeById(this.pessoa.getId());
 		this.pessoa = new Pessoa();

@@ -7,26 +7,25 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.com.praticaJuridica.model.Causa;
+import br.com.praticaJuridica.model.Cliente;
 import br.com.praticaJuridica.model.Endereco;
-import br.com.praticaJuridica.model.Pessoa;
 
+public class ClienteJpaDAO {
 
-public class PessoaJpaDAO {
-
-	private static PessoaJpaDAO instance;
+	private static ClienteJpaDAO instance;
     protected EntityManager entityManager;
-	
-    private PessoaJpaDAO(){
+    
+    private ClienteJpaDAO(){
     	entityManager = getEntityManager();
     }
  
-    public static PessoaJpaDAO getInstance(){ 
+    public static ClienteJpaDAO getInstance(){ 
     	if (instance == null){ 
-    		instance = new PessoaJpaDAO(); 
+    		instance = new ClienteJpaDAO(); 
     	} 
     	return instance; 
     }
-    
+ 
     private EntityManager getEntityManager(){ 
     	EntityManagerFactory factory = Persistence.createEntityManagerFactory("crudPraticaJuridica"); 
     	if(entityManager == null){ 
@@ -35,44 +34,36 @@ public class PessoaJpaDAO {
     	return entityManager; 
     }
     
-    public Pessoa getById(final int id){ 
+    public Cliente getById(final int id){ 
     	
-    	return entityManager.find(Pessoa.class, id); 
+    	return entityManager.find(Cliente.class, id); 
     	
     }
     
     @SuppressWarnings("unchecked") 
-    public List<Pessoa> findAll(){ 
-    	List<Pessoa> pessoas = entityManager.createQuery("FROM " + Pessoa.class.getName()).getResultList();
-    	for(Pessoa pessoa: pessoas){
-    		entityManager.refresh(pessoa);
+    public List<Cliente> findAll(){ 
+    	List<Cliente> clientes =  entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
+    	for(Cliente cliente : clientes){
+    		entityManager.refresh(cliente);
     	}
-    	return pessoas;
-    }
-    
-    
-    public int pegaId(){
-    	int resultado;
-    	resultado = entityManager.createNativeQuery("SELECT max(id_endereco) from endereco").getMaxResults();
-    	return resultado;
+    	return clientes;
     }
 
-    public void persist(Pessoa pessoa){ 
+    public void persist(Cliente cliente){ 
     	try{ 
     		entityManager.getTransaction().begin(); 
-    		entityManager.persist(pessoa); 
+    		entityManager.persist(cliente); 
     		entityManager.getTransaction().commit(); 
-    		instance = null;
     	}catch(Exception ex){ 
     		ex.printStackTrace(); 
     		entityManager.getTransaction().rollback(); 
     	} 
     }
     
-    public void getMerge(Pessoa pessoa){ 
+    public void getMerge(Cliente cliente){ 
     	try{ 
     		entityManager.getTransaction().begin(); 
-    		entityManager.merge(pessoa); 
+    		entityManager.merge(cliente); 
     		entityManager.getTransaction().commit(); 
     		}catch(Exception ex){ 
     			ex.printStackTrace(); 
@@ -80,11 +71,11 @@ public class PessoaJpaDAO {
     		} 
     }
     
-    public void remove(Pessoa pessoa){ 
+    public void remove(Cliente cliente){ 
     	try{ 
     		entityManager.getTransaction().begin(); 
-    		pessoa = entityManager.find(Pessoa.class, pessoa.getId()); 
-    		entityManager.remove(pessoa); 
+    		cliente = entityManager.find(Cliente.class, cliente.getId()); 
+    		entityManager.remove(cliente); 
     		entityManager.getTransaction().commit(); 
     		}catch(Exception ex){ 
     			ex.printStackTrace(); 
@@ -94,8 +85,8 @@ public class PessoaJpaDAO {
     
     public void removeById(final int id){ 
     	try{ 
-    		Pessoa pessoa = getById(id); 
-    		remove(pessoa); 
+    		Cliente cliente = getById(id); 
+    		remove(cliente); 
     		}catch(Exception ex){ 
     			ex.printStackTrace(); 
     		} 
@@ -128,7 +119,6 @@ public class PessoaJpaDAO {
   			entityManager.getTransaction().rollback(); 
   		} 
   }
-    
     
     
     

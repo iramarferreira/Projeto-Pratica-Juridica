@@ -46,6 +46,18 @@ public class UsuarioController {
 		return usuarioJpaDao.findAll();
 	}
 	
+	public List<Usuario> getListarAdmins(){
+//		List<Usuario> usuarios = usuarioJpaDao.findAll();
+//		
+//		for(Usuario usuario : usuarios){
+//			if(usuario.getTipoUsuario().equals("normal")){
+//				usuarios.remove(usuario);
+//			}
+//		}
+//		return usuarios;
+		return usuarioJpaDao.findAdmin();
+	}
+	
 	public String remover(){
 		this.usuarioJpaDao.removeById(this.usuario.getId());
 		this.usuario = new Usuario();

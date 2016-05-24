@@ -18,6 +18,13 @@
 		<h:form>
 	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
 		</h:form>
+		
+		<div id="header">
+  			<ui:insert name="header">
+  				<!-- Import de página do cabeçalho -->
+  				<ui:include src="/template/header.xhtml"/>
+  			</ui:insert>
+		</div>
 	
 		<h:form>
 			<p:panel id="panel" header="Alterar usuário" >
@@ -35,6 +42,13 @@
 			</p:panel>
 		
 		</h:form>
+		
+		<div id="footer">
+			<ui:insert name="footer">
+				<!-- Import de página do rodapé -->
+				<ui:include src="/template/footer.xhtml"/>
+			</ui:insert>
+		</div>
 		
 			
 	</h:body>
