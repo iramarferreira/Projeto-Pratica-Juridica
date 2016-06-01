@@ -237,7 +237,7 @@ public class CausaJpaDAO {
 //    		} 
 //    }
     
-    public void remove(int id){
+    public int remove(int id){
     	instance = null;
     	this.connection = new ConnectionFactory().getConnection();
 		try{
@@ -249,9 +249,10 @@ public class CausaJpaDAO {
 					stmt.setLong(1, id);
 					stmt.execute();
 					stmt.close();
-					
+					return 1;
 				}								
 			}
+			return 0;
 			
 		}catch(SQLException e){
 			throw new RuntimeException(e);

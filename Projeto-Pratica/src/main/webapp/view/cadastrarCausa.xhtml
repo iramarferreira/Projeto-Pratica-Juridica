@@ -9,6 +9,7 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Cadastrar Causa</title>
+		<link rel="shortcut icon" href="../../imagens/logo.png" />
 		<h:outputStylesheet library="css" name="estilo.css"/>
 		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
@@ -49,8 +50,8 @@
 		            </p:inputText>
 		        	 <p:message for="natureza"    />
 		 			
-		            <p:outputLabel value="Data de atendimento" for="dataAtendimento" />
-					<p:calendar size="12" id="dataAtendimento" pattern="dd/MM/yyyy"
+		            <p:outputLabel value="Data de atendimento"  for="dataAtendimento" />
+					<p:calendar required="true" requiredMessage="Preencha os campos" size="12" id="dataAtendimento" pattern="dd/MM/yyyy"
 						value="#{causaController.causa.dataAtendimento}" />
 					<p:message for="dataAtendimento"    /> 
 		            
@@ -109,7 +110,7 @@
 		            
 		        </h:panelGrid>
 		 
-		        <h:commandButton value="Salvar"  action="#{causaController.adiciona()}" icon="ui-icon-disk" update="@form" />
+		        <p:commandButton value="Salvar"  action="#{causaController.adiciona()}" icon="ui-icon-disk" update="@form" />
 		        
 		     
 			</p:panel>

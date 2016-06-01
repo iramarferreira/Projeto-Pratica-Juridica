@@ -103,6 +103,14 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	    <version>1.0.8</version>
 	</dependency>
 	
+	<!-- http://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itextpdf</artifactId>
+    <version>5.0.6</version>
+</dependency>
+	
+	
 	
 	
 	</dependencies>

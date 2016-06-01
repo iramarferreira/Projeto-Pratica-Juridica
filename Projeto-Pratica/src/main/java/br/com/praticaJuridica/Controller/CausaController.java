@@ -2,8 +2,10 @@ package br.com.praticaJuridica.Controller;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.persistence.Query;
 
 import br.com.praticaJuridica.DAO.CausaJpaDAO;
@@ -59,8 +61,17 @@ public class CausaController {
 	}
 	
 	public String remover(){
-		this.causaJpaDAO.remove(this.causa.getId());
+		int resultado = this.causaJpaDAO.remove(this.causa.getId());
 		this.causa = new Causa();
+		if(resultado == 1){
+			FacesMessage msg;
+		    msg = new FacesMessage("Causa removida");
+		    FacesContext.getCurrentInstance().addMessage(null, msg); 
+		}else{
+			FacesMessage msg;
+		    msg = new FacesMessage("Causa não encontrada");
+		    FacesContext.getCurrentInstance().addMessage(null, msg); 
+		}
 		return LoginController.login();
 	}
 	

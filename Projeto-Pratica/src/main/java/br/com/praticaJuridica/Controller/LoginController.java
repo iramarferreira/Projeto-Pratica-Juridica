@@ -50,8 +50,10 @@ public class LoginController {
 					"Usuário e/ou senha inválidos!");
 					mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
 					context.addMessage(null, mensagem);
+			
 		}
 		return null;
+		
 	}
 	
 	public String getNomeLogin() {
@@ -69,6 +71,8 @@ public class LoginController {
 	public String logout() {
 		FacesContext.getCurrentInstance().getExternalContext()
 		.invalidateSession();
+		nomeLogin = "";
+		senha = "";
 		logado = false;
 		return "/login?faces-redirect=true";
 	}

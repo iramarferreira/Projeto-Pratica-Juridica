@@ -5,15 +5,16 @@
   	xmlns:f="http://java.sun.com/jsf/core"
   	xmlns:h="http://java.sun.com/jsf/html"
   	xmlns:p="http://primefaces.org/ui">
-	
+
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Menu Principal</title>
+		<title>Gerar formulário</title>
 		<link rel="shortcut icon" href="../../imagens/logo.png" />
+		<h:outputStylesheet library="css" name="estilo.css"/>
 		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
 	
-	<body>	
+	<h:body>
 	
 		<h:form>
 	   		<h:inputHidden value="#{loginController.validarLogin()}"/>
@@ -22,28 +23,34 @@
 		<div id="header">
   			<ui:insert name="header">
   				<!-- Import de página do cabeçalho -->
-  				<ui:include src="/template/layoutUsuario.xhtml"/>
+  				<ui:include src="/template/header.xhtml"/>
   			</ui:insert>
 		</div>
+	
+		<h:form>
+			<p:panel id="panel" header="Gerar formulário" >
+		        
+		        <h:panelGrid columns="3" cellpadding="5"  >
+		            
+		            <p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+     					<p:fileDownload value="#{fileBean.file}" />
+					</p:commandButton>
+					
+					<p:commandButton value="Voltar" action="#{loginController.login()}"/>
+					
+		            		            
+		        </h:panelGrid>
+		 
+		   </p:panel>
 		
-		
-		
-		<h:form id="frm">
-			
-			<p:growl id="msg" showDetail="true" />
-			<p:messages showDetail="true" showSummary="true"
-				autoUpdate="true" />
 		</h:form>
-
-	<h1><font color="#2E2E2E" > Bem-vindo Usuário!</font></h1>	
-  			
+		
 		<div id="footer">
 			<ui:insert name="footer">
 				<!-- Import de página do rodapé -->
 				<ui:include src="/template/footer.xhtml"/>
 			</ui:insert>
 		</div>
-	
-	</body>
-	
+			
+	</h:body>
 </html>

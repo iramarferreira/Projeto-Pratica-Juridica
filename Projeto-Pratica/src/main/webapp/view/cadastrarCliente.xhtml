@@ -9,6 +9,7 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Cadastrar Cliente</title>
+		<link rel="shortcut icon" href="../../imagens/logo.png" />
 		<h:outputStylesheet library="css" name="estilo.css"/>
 		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
@@ -36,7 +37,7 @@
 		        <h:panelGrid columns="3" cellpadding="5"  >		        	
 		        
 		        	<p:outputLabel for="nome" value="Nome:" />
-		 			<p:inputText id="nome"  
+		 			<p:inputText id="nome"  required="true" requiredMessage="Preencha o campo"
 		            	validatorMessage="Digite o nome com no mínimo 3 caracteres" 
 		            	label="Nome" value="#{clienteController.cliente.nome}">
 		                <f:validateLength minimum="3"  />
@@ -44,21 +45,22 @@
 		        	 <p:message for="nome"    />
 
 		            <p:outputLabel for="cpf" value="CPF:" />
-		            <p:inputMask id="cpf" 
+		            <p:inputMask id="cpf" required="true" requiredMessage="Preencha o campo"
 		            	validatorMessage="Digite o CPF com 11 caracteres" label="CPF" 
 		            	value="#{clienteController.cliente.cpf}" mask="999.999.999-99" >
 		            </p:inputMask>
 		            <p:message for="cpf"    />
 		 
 		 			<p:outputLabel for="rg" value="RG:" />
-		 			<p:inputMask id="rg"  
+		 			<p:inputMask id="rg"  required="true" requiredMessage="Preencha o campo"
 		            	validatorMessage="Digite o RG com 7 caracteres" label="RG" 
 		            	value="#{clienteController.cliente.rg}" mask="9.999.999">
 		            </p:inputMask>
 		            <p:message for="rg"    />
 		            
 		            <p:outputLabel value="Data de nascimento" for="dataNascimento" />
-					<p:calendar size="12" id="dataNascimento" pattern="dd/MM/yyyy"
+					<p:calendar size="12" id="dataNascimento" pattern="dd/MM/yyyy" 
+					required="true" requiredMessage="Preencha o campo"
 						value="#{clienteController.cliente.dataNascimento}" />
 					<p:message for="dataNascimento"    /> 
 		            
@@ -104,7 +106,7 @@
 		            <p:message for="profissao"    />
 		            
 		            <p:outputLabel for="renda" value="Renda:" />
-		 			<p:inputText id="renda"  
+		 			<p:inputText id="renda"  required="true" requiredMessage="Preencha o campo"
 		            	label="Renda" value="#{clienteController.cliente.renda}">
 		                
 		            </p:inputText>
@@ -205,7 +207,7 @@
 		            
 		        </h:panelGrid>
 		 
-		        <h:commandButton value="Salvar" action="#{clienteController.adiciona()}" icon="ui-icon-disk" update="@form" />
+		        <p:commandButton value="Salvar" action="#{clienteController.adiciona()}" icon="ui-icon-disk" update="@form" />
 		        
 		     
 			</p:panel>
@@ -217,7 +219,7 @@
 		<div id="footer">
 			<ui:insert name="footer">
 				<!-- Import de página do rodapé -->
-				<ui:include src="/template/footer.xhtml"/>
+				<ui:include src="/template/footerRelative.xhtml"/>
 			</ui:insert>
 		</div>
 		

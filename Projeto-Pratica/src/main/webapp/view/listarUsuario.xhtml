@@ -9,6 +9,7 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Usuários</title>
+		<link rel="shortcut icon" href="../../imagens/logo.png" />
 		<h:outputStylesheet library="css" name="planoFundo.css"/>
 	</h:head>
 	
@@ -30,7 +31,7 @@
 		
 			<p:dataTable value="#{usuarioController.listar}" var="usuarios"
 				boder="1" cellspacing="0" cellpadding="2" paginator="true" 
-				rows="10" paginatorPosition="bottom">
+				rows="8" paginatorPosition="bottom">
 				
 				<f:facet name="header">
           			Usuários

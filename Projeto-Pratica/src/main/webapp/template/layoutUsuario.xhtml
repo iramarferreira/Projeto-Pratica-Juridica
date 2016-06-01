@@ -28,7 +28,7 @@
 		<div class="header">
 			<img src="../../imagens/ufrn.png" title="Prática Jurídica" align="top" width="50" />
 			
-			<font color="#5F7DB2" size="25" > Prática Jurídica</font>
+			<font color="#5F7DB2" size="25" > SIGPJ  </font>
 		</div>
 		
 		
@@ -41,7 +41,10 @@
 
 		
 		<h:form>
-			<p:menubar >
+		<p:growl id="msgs" showDetail="true" />
+			<p:menubar style="margin-top: -20px; margin-bottom: 20px; width: 99.4%;" >
+			
+			
 			
 				<p:submenu label="Cadastrar" icon="ui-icon-plus">
 					<p:menuitem value="Cliente" action="cadastrarCliente?faces-redirect=true" />
@@ -73,17 +76,46 @@
 				
 				
 				<p:submenu label="Arquivos" icon="ui-icon-folder-open">
-					<p:menuitem value="Gerar formulário"  icon="ui-icon-document"/>
-					<p:menuitem value="Gerar relatório"  icon="ui-icon-document"/>
+					<p:menuitem value="Gerar formulário"  icon="ui-icon-document" action="gerarFormulario?faces-redirect=true"/>
+					<p:menuitem value="Gerar relatório"  update="msgs" icon="ui-icon-document" action="#{gerarPDFBancoDeDados.gerarPdf()}"/>
 					
 				
 				</p:submenu>
 				
 				
 				<p:submenu style="float:  right;" label="Sistema" icon="ui-icon-gear">
+					<p:menuitem value="Contato"  icon="ui-icon-contact" onclick="PF('dlg1').show();"/>
+					<p:menuitem value="Sobre" icon="ui-icon-info" onclick="PF('dlg2').show();"/>
 					<p:menuitem value="Sair"  icon="ui-icon-extlink" action="#{loginController.logout}" />
 				</p:submenu>
 			</p:menubar>
+			
+			<p:dialog header="Contato" widgetVar="dlg1" modal="true" height="200">
+    			<h3>
+    			<h:outputText value="Desenvolvedores" />
+    			</h3>
+    			<p></p>
+    			<p></p>
+    			<h:outputText value="Nome: Iramar Ferreira dos Santos" /><p></p>
+    			
+    			<h:outputText value="Email: iramarbsi@gmail.com" />
+    			<p></p>
+    			<h:outputText value="Nome: Yuri Kelvin do Nascimento Silva" />
+    			<p></p>
+    			<h:outputText value="Email: yuri18@gmail.com" />
+			</p:dialog> 
+			
+			<p:dialog header="Sobre" widgetVar="dlg2" modal="true" height="100" >
+    			<h3>
+    			<h:outputText value="Sistema Integrado de Gerenciamento da Prática Jurídica" />
+    			</h3>
+    			<p></p>
+    			<p></p>
+    			<h:outputText value="Versão do sistema: 1.0" />
+    			<p></p>
+    			<h:outputText value="Versão do Banco de Dados: 1.0" />
+			</p:dialog> 
+			
 		</h:form>
 	</body>
 </html>
